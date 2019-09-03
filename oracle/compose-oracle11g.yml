@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  oracle:
+    image: repository.dimas-maryanto.com:8086/oracle/database:11.2.0.2-xe
+    ports:
+      - 1522:1521
+      - 5500:8080
+    environment:
+      - ORACLE_PWD=oracleSysdba2018
+    shm_size: 1g
+    volumes:
+      - ./setup/schema/:/u01/app/oracle/scripts/setup/
+      - ./startup/schema/:/u01/app/oracle/scripts/startup/
+      - oracle-data:/u01/app/oracle/oradata
+    networks:
+      - oracle-network
+volumes:
+  oracle-data:
+networks:
+  oracle-network:
