@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  reactivedb:
+    image: repository.dimas-maryanto.com:8086/mongo:3.4-xenial
+    networks:
+      - monggo-network
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: chat_app
+      MONGO_INITDB_ROOT_PASSWORD: chat_app
+    volumes:
+      - monggo-data:/data/db
+networks:
+  monggo-network:
+volumes:
+  monggo-data:
