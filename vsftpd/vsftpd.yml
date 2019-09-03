@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  ftp:
+    image: repository.dimas-maryanto.com:8086/fauria/vsftpd
+    ports:
+      - 21:21
+      - 20:20
+      - 21100-21110:21100-21110
+    environment:
+      - FTP_USER=admin
+      - FTP_PASS=admin
+      - PASV_ADDRESS=0.0.0.0
+      - PASV_MIN_PORT=21100
+      - PASV_MAX_PORT=21110
+      - FILE_OPEN_MODE=0777
+    volumes:
+      - ftp-storage:/home/vsftpd
+    networks:
+      - fpt-network
+volumes:
+  ftp-storage:
+networks:
+  fpt-network:
