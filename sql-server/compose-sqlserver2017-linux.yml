@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=PasswordnyaSA2018
+      - MSSQL_PID=Developer
+    ports:
+      - 1433:1433
+    volumes:
+      - sqlserver_data:/var/opt/mssql/
+    networks:
+      - auth-server-network
+networks:
+  sqlserver-network:
+volumes:
+  sqlserver_data:
