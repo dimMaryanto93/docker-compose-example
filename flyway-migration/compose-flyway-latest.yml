@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  flyway: 
+    image: boxfuse/flyway
+    command: -url=jdbc:postgresql://postgresql:5432/hr -schemas=hr -user=hr -password=hr -connectRetries=60 migrate
+    volumes:
+      - ./schema/:/flyway/sql/
+    depends_on:
+      - postgresql
+volumes:
+  pg_data:
