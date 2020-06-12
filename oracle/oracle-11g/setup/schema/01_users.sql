@@ -1,8 +1,5 @@
 SET SERVEROUTPUT ON;
-create user auth identified by auth;
-
--- register to connect
-grant create session, connect, resource to auth;
-
--- grant privileges
-grant all privileges to auth;
+create user testing identified by testing;
+grant create session, connect, resource to testing;
+grant all privileges to testing;
+grant IMP_FULL_DATABASE, DATAPUMP_EXP_FULL_DATABASE to testing;
