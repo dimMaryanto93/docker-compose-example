@@ -1,0 +1,15 @@
+version: '3.7'
+services: 
+    logstash:
+        image: ${PRIVATE_REPOSITORY}logstash/logstash:${ELASTICSEARCH_VERSION}
+        environment: 
+            - LOGSTASH_ELASTICSEARCH_HOST=http://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}
+        ports:
+            - 9600:9600
+            - 5044:5044
+        networks:
+            - elastic_network
+        depends_on:
+            - ${ELASTICSEARCH_HOST}
+networks:
+    elastic_network:

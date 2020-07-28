@@ -1,0 +1,10 @@
+version: '3.7'
+services: 
+    journalbeat:
+        image: ${PRIVATE_REPOSITORY}beats/journalbeat:${ELASTICSEARCH_VERSION}
+        depends_on: 
+            - ${ELASTICSEARCH_HOST}
+        networks:
+            - elastic_network
+networks:
+    elastic_network:

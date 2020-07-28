@@ -1,0 +1,24 @@
+version: '3.7'
+services: 
+    elasticsearch:
+        image: ${PRIVATE_REPOSITORY}elasticsearch/elasticsearch:${ELASTICSEARCH_VERSION}
+        ports:
+            - 9300:9300
+            - 9200:${ELASTICSEARCH_PORT}
+        environment:
+            - http.cors.enabled=true
+            - http.cors.allow-origin=*
+            - http.cors.allow-methods=OPTIONS,HEAD,GET,POST,PUT,DELETE
+            - http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+            - transport.host=127.0.0.1
+            - cluster.name=docker-cluster
+            - discovery.type=single-node
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        volumes:
+            - elasticsearch_data:/usr/share/elasticsearch/data
+        networks:
+            - elastic_network
+volumes: 
+    elasticsearch_data:
+networks:
+    elastic_network:

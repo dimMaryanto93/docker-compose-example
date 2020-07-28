@@ -1,0 +1,10 @@
+version: '3.7'
+services: 
+    auditbeat:
+        image: ${PRIVATE_REPOSITORY}beats/auditbeat:${ELASTICSEARCH_VERSION}
+        depends_on: 
+            - ${ELASTICSEARCH_HOST}
+        networks:
+            - elastic_network
+networks:
+    elastic_network:

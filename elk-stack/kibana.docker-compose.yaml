@@ -1,0 +1,12 @@
+version: '3.7'
+services: 
+    kibana:
+        image: ${PRIVATE_REPOSITORY}kibana/kibana:${ELASTICSEARCH_VERSION}
+        ports:
+            - 5601:5601
+        networks:
+            - elastic_network
+        depends_on:
+            - ${ELASTICSEARCH_HOST}
+networks:
+    elastic_network:

@@ -1,0 +1,1 @@
+# Elasticsearch catching with redis

@@ -1,0 +1,10 @@
+version: '3.7'
+services: 
+    packetbeat:
+        image: ${PRIVATE_REPOSITORY}beats/packetbeat:${ELASTICSEARCH_VERSION}
+        depends_on: 
+            - ${ELASTICSEARCH_HOST}
+        networks:
+            - elastic_network
+networks:
+    elastic_network:
