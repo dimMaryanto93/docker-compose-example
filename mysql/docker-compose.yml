@@ -1,13 +1,13 @@
 version: '3.7'
 services:
   mysql:
-    image: repository.dimas-maryanto.com:8086/mysql:5.7
+    image: ${PRIVATE_REPOSITORY}mysql:${MYSQL_VERSION}
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=example
-      - MYSQL_PASSWORD=example
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_USER
+      - MYSQL_PASSWORD
     ports:
-      - 3306:3306
+      - 3306:${MYSQL_PORT}
     volumes:
       - mysql_data:/var/lib/mysql
     networks:

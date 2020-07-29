@@ -1,12 +1,12 @@
 version: '3.7'
 services:
   oracle:
-    image: repository.dimas-maryanto.com:8086/oracle/database:11.2.0.2-xe
+    image: ${PRIVATE_REPOSITORY}oracle/database:11.2.0.2-xe
     ports:
       - 1521:1521
       - 5500:8080
     environment:
-      - ORACLE_PWD=oracleSysdba2018
+      - ORACLE_PWD
     shm_size: 1g
     volumes:
       - ./setup/schema/:/u01/app/oracle/scripts/setup/

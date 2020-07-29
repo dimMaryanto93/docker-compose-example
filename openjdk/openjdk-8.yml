@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   openjdk-8:
-    image: repository.dimas-maryanto.com:8086/openjdk:8-alpine
+    image: ${PRIVATE_REPOSITORY}openjdk:8-alpine
     environment:
       - APPLICATION_PORT=8080
     ports:

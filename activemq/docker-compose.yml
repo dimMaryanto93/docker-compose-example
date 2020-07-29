@@ -1,12 +1,12 @@
 version: '3.7'
 services:
   activemq:
-    image: repository.dimas-maryanto.com:8086/webcenter/activemq:5.14.3
+    image: ${PRIVATE_REPOSITORY}webcenter/activemq:${ACTIVEMQ_VERSION}
     environment:
-      - ACTIVEMQ_CONFIG_MINMEMORY=512
-      - ACTIVEMQ_CONFIG_MAXMEMORY=2048
-      - ACTIVEMQ_ADMIN_LOGIN=admin
-      - ACTIVEMQ_ADMIN_PASSWORD=admin
+      - ACTIVEMQ_CONFIG_MINMEMORY
+      - ACTIVEMQ_CONFIG_MAXMEMORY
+      - ACTIVEMQ_ADMIN_LOGIN
+      - ACTIVEMQ_ADMIN_PASSWORD
     ports:
       - 8161:8161
       - 1883:1883

@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   openldap: 
-    image: repository.dimas-maryanto.com:8086/tiredofit/openldap:6.5
+    image: ${PRIVATE_REPOSITORY}/tiredofit/openldap:6.5
     ports:
       - 389:389
       - 636:636

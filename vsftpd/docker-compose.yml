@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   ftp:
-    image: repository.dimas-maryanto.com:8086/fauria/vsftpd
+    image: ${PRIVATE_REPOSITORY}fauria/vsftpd
     ports:
       - 21:21
       - 20:20
