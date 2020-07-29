@@ -1,0 +1,10 @@
+version: '3.7'
+services: 
+    redis:
+        image: ${PRIVATE_REPOSITORY}redis:${REDIS_VERSION}
+        ports: 
+            - 6379:${REDIS_PORT}
+        networks: 
+            - redis-network
+networks: 
+    redis-network:
