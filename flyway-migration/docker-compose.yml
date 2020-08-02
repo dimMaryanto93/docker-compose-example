@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  flyway: 
+    image: ${PRIVATE_REPOSITORY}boxfuse/flyway
+    environment:
+      - POSTGRES_PASSWORD
+      - POSTGRES_USER
+      - POSTGRES_DB
+      - POSTGRES_HOST  
+    command: -url=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB} -schemas=hr -user=${POSTGRES_USER} -password=${POSTGRES_PASSWORD} -connectRetries=60 migrate
+    volumes:
+      - ./schema/:/flyway/sql/
+    depends_on:
+      - ${POSTGRES_HOST}
+    networks: 
+      - postgres-network
+networks:
+  postgres-network:
